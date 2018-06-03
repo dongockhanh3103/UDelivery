@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/contract"
+            android:icon="@drawable/ic_contract"
+            android:title="Đơn hàng" />
+        <item
+            android:id="@+id/notif"
+            android:icon="@drawable/ic_notificationbell"
+            android:title="Thông báo mới" />
+        <item
+            android:id="@+id/history"
+            android:icon="@drawable/ic_history"
+            android:title="Lịch sử giao hàng" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_signout"
+            android:title="Đăng xuất" />
+
+    </group>
+
+
+</menu>
