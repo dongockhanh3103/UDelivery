@@ -27,18 +27,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitService {
-
   private static RetrofitService instance;
-
   private RetrofitService() {
     Retrofit retrofit = new Retrofit.Builder()
         .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create(getGsonBuilder()))
         .client(getOkHttpClient())
-        .baseUrl(Constants.SERVER_END_POINT)
+        .baseUrl(Constants.UGAO_END_POINT)
         .build();
   }
-
   public static synchronized RetrofitService getInstance() {
     if (instance == null) {
       instance = new RetrofitService();
@@ -51,7 +48,7 @@ public class RetrofitService {
         .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create(getGsonBuilder()))
         .client(getOkHttpClient())
-        .baseUrl(Constants.SERVER_END_POINT)
+        .baseUrl(Constants.UGAO_END_POINT)
         .build();
     return retrofit;
   }
@@ -118,6 +115,7 @@ public class RetrofitService {
           }
         })
         .addInterceptor(customInterceptor)
+        .addInterceptor(new AddingHeaderInterceptor())
         .addInterceptor(logger).build();
   }
 
@@ -128,16 +126,17 @@ public class RetrofitService {
         .create();
   }
 
+
   private class AddingHeaderInterceptor implements Interceptor {
 
-    private String accessToken = Constants.ACCESS_TOKEN;
+    private String accessToken =Constants.ACCESS_TOKEN;
 
     @Override
     public Response intercept(Chain chain) throws IOException {
       Request originalRequest = chain.request();
 
       Request requestWithUserAgent = originalRequest.newBuilder()
-          .header("token", accessToken)
+          .header("token",accessToken)
           .build();
 
       return chain.proceed(requestWithUserAgent);

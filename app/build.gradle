@@ -18,9 +18,9 @@ android {
         }
     }
 }
-ext{
+ext {
     retrofit = '2.4.0'
-    okhttp='3.10.0'
+    okhttp = '3.10.0'
 }
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

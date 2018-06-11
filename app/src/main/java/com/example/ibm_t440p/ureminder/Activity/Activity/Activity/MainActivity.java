@@ -14,8 +14,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.order.model.CustomerOrder;
 import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.ui.MapFragment;
+import com.example.ibm_t440p.ureminder.Activity.Activity.retrofit.OrderService;
+import com.example.ibm_t440p.ureminder.Activity.Activity.retrofit.RetrofitService;
 import com.example.ibm_t440p.ureminder.R;
+import java.lang.annotation.Annotation;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,6 +37,7 @@ public class MainActivity extends AppCompatActivity
     setSupportActionBar(toolbar);
 
 
+
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
         this, drawer, toolbar, R.string.navigation_drawer_open,
@@ -42,8 +50,23 @@ public class MainActivity extends AppCompatActivity
 
     replaceFragment(MapFragment.newInstance());
 
+    OrderService orderService= RetrofitService.getInstance().getRetrofitDongTienServer().create(OrderService.class);
+    Call<CustomerOrder> customerOrderCall =orderService.getAllCustomersOrder();
+    customerOrderCall.enqueue(new Callback<CustomerOrder>() {
+      @Override
+      public void onResponse(Call<CustomerOrder> call, Response<CustomerOrder> response) {
+
+      }
+
+      @Override
+      public void onFailure(Call<CustomerOrder> call, Throwable t) {
+
+      }
+    });
 
   }
+
+
 
   public void replaceFragment(Fragment fragment) {
 

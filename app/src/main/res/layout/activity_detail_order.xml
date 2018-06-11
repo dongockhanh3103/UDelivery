@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  tools:context="com.example.ibm_t440p.ureminder.Activity.Activity.Activity.DetailOrderActivity">
+  <ImageView
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:scaleType="fitXY"
+    android:src="@drawable/gaongon"/>
+  <TextView
+    android:textStyle="bold"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:text="Gạo nếp - Thơm miền tây"
+    android:textColor="#2d3436"
+    android:textSize="21dp"/>
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:text="109/15 Trần Khắc Trân,P.Tân Định,Quận 1"
+      android:textColor="#2d3436"
+      android:textSize="16dp"/>
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:drawableLeft="@drawable/ic_movedirect"
+      android:text="3.6 km"
+      android:textColor="#b2bec3"
+      android:textSize="14dp"/>
+  </LinearLayout>
+  <View
+
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_marginTop="10dp"
+    android:background="#b2bec3"
+    />
+  <LinearLayout
+    android:orientation="horizontal"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="75dp">
+    <TextView
+      android:gravity="center"
+      android:layout_width="0dp"
+      android:layout_weight="1"
+      android:text="CHUYỂN HÀNG"
+      android:drawableTop="@drawable/ic_shipped"
+      android:layout_height="match_parent"/>
+    <View
+      android:layout_weight="0.01"
+      android:layout_width="0dp"
+      android:layout_height="45dp"
+      android:layout_marginTop="10dp"
+      android:background="#b2bec3"
+      />
+    <TextView
+      android:gravity="center"
+      android:layout_width="0dp"
+      android:layout_weight="1"
+      android:text="TẠM NGƯNG"
+      android:drawableTop="@drawable/ic_delaytruck"
+      android:layout_height="match_parent"/>
+    <View
+      android:layout_weight="0.01"
+      android:layout_width="0dp"
+      android:layout_height="45dp"
+      android:layout_marginTop="10dp"
+      android:background="#b2bec3"
+      />
+    <TextView
+      android:drawableLeft=""
+      android:gravity="center"
+      android:layout_width="0dp"
+      android:layout_weight="1"
+      android:text="TRẢ HÀNG"
+      android:drawableTop="@drawable/ic_refund"
+      android:layout_height="match_parent"/>
+
+  </LinearLayout>
+
+
+</LinearLayout>
