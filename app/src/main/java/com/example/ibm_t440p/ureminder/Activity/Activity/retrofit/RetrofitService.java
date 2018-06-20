@@ -1,6 +1,7 @@
 package com.example.ibm_t440p.ureminder.Activity.Activity.retrofit;
 
 import com.example.ibm_t440p.ureminder.Activity.Activity.config.Constants;
+import com.example.ibm_t440p.ureminder.Activity.Activity.constant.SavedCache;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class RetrofitService {
     return instance;
   }
 
-  public Retrofit getRetrofitDongTienServer() {
+  public Retrofit getRetrofitUGaoServer() {
     Retrofit retrofit = new Retrofit.Builder()
         .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create(getGsonBuilder()))
@@ -129,14 +130,14 @@ public class RetrofitService {
 
   private class AddingHeaderInterceptor implements Interceptor {
 
-    private String accessToken =Constants.ACCESS_TOKEN;
+
 
     @Override
     public Response intercept(Chain chain) throws IOException {
       Request originalRequest = chain.request();
 
       Request requestWithUserAgent = originalRequest.newBuilder()
-          .header("token",accessToken)
+          .header("token",SavedCache.getInstance().getAccessToken())
           .build();
 
       return chain.proceed(requestWithUserAgent);

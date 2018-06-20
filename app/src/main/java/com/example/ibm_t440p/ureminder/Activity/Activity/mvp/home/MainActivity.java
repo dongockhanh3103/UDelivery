@@ -1,5 +1,6 @@
-package com.example.ibm_t440p.ureminder.Activity.Activity.Activity;
+package com.example.ibm_t440p.ureminder.Activity.Activity.mvp.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,26 +9,27 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.order.model.CustomerOrder;
+import android.widget.TextView;
+import com.example.ibm_t440p.ureminder.Activity.Activity.base.BaseActivity;
+import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.home.IHome.Presenter;
+import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.home.model.ShipperInfo;
+import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.order.OrderListActivity;
 import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.ui.MapFragment;
-import com.example.ibm_t440p.ureminder.Activity.Activity.retrofit.OrderService;
-import com.example.ibm_t440p.ureminder.Activity.Activity.retrofit.RetrofitService;
+import com.example.ibm_t440p.ureminder.Activity.Activity.utils.DialogNotif;
 import com.example.ibm_t440p.ureminder.R;
-import java.lang.annotation.Annotation;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity
-    implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity
+    implements NavigationView.OnNavigationItemSelectedListener,IHome.View {
 
-
+  DialogNotif dialogNotif;
+  HomePresenter mPresenter;
+  TextView tvShipperName;
+  TextView tvShipperPhone;
+  NavigationView navigationView;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -35,34 +37,21 @@ public class MainActivity extends AppCompatActivity
     setContentView(R.layout.activity_main);
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
-
-
-
+    dialogNotif=new DialogNotif(MainActivity.this);
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
         this, drawer, toolbar, R.string.navigation_drawer_open,
         R.string.navigation_drawer_close);
     drawer.setDrawerListener(toggle);
     toggle.syncState();
-
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
-
     replaceFragment(MapFragment.newInstance());
 
-    OrderService orderService= RetrofitService.getInstance().getRetrofitDongTienServer().create(OrderService.class);
-    Call<CustomerOrder> customerOrderCall =orderService.getAllCustomersOrder();
-    customerOrderCall.enqueue(new Callback<CustomerOrder>() {
-      @Override
-      public void onResponse(Call<CustomerOrder> call, Response<CustomerOrder> response) {
-
-      }
-
-      @Override
-      public void onFailure(Call<CustomerOrder> call, Throwable t) {
-
-      }
-    });
+    navigationView=findViewById(R.id.nav_view);
+    tvShipperName=navigationView.getHeaderView(0).findViewById(R.id.tvShipperName);
+    tvShipperPhone=navigationView.getHeaderView(0).findViewById(R.id.tvShipperPhone);
+    getPresenter().getShipperInfo();
 
   }
 
@@ -122,6 +111,7 @@ public class MainActivity extends AppCompatActivity
     if (id == R.id.home) {
       // Handle the camera action
     } else if (id == R.id.contract) {
+      startActivity(new Intent(this, OrderListActivity.class));
 
 
     } else if (id == R.id.notif) {
@@ -138,4 +128,34 @@ public class MainActivity extends AppCompatActivity
   }
 
 
+  @Override
+  public void setPresenter(Presenter presenter) {
+    mPresenter= (HomePresenter) presenter;
+
+  }
+
+  @Override
+  public void onShowLoadingProgress(boolean isShow) {
+    onShowProgressBar(isShow);
+  }
+
+  @Override
+  public void onGetShipperInfoSuccess(ShipperInfo shipper) {
+    tvShipperPhone.setText(tvShipperPhone.getText()+shipper.getPhoneNum());
+    tvShipperName.setText(tvShipperName.getText()+shipper.getFullname());
+
+  }
+
+  @Override
+  public void onGetShipperInfoFailure(String msg) {
+    dialogNotif.showBasicDismissDialog("Errors",msg);
+
+  }
+
+  private IHome.Presenter getPresenter() {
+    if (mPresenter == null) {
+      mPresenter = new HomePresenter(this);
+    }
+    return mPresenter;
+  }
 }

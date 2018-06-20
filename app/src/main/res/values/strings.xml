@@ -31,4 +31,22 @@
   <string name="title_activity_registration">Sign in</string>
   <string name="submit_button">SUBMIT</string>
   <string name="action_sign_out">Sign Out</string>
+
+  <string name="ok">OK</string>
+
+  <string name="co">Có</string>
+  <string name="khong">Không</string>
+  <string name="close">Close</string>
+  <string name="next">Next</string>
+  <string name="edit">Edit</string>
+  <string name="yes">Yes</string>
+  <string name="no">No</string>
+  <string name="back">Back</string>
+  <string name="cancel">Cancel</string>
+  <string name="done">Done</string>
+  <string name="save">Save</string>
+  <string name="submit">Submit</string>
+  <string name="proceed">Proceed</string>
+  <string name="error">Oops</string>
+  <string name="btnDetail"><u>Chi tiết >></u></string>
 </resources>

@@ -2,57 +2,56 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
-  android:orientation="horizontal"
-  android:layout_height="match_parent">
-  <ImageView
-    android:scaleType="centerInside"
-    android:layout_margin="5dp"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:src="@drawable/gaote"/>
+  android:orientation="vertical"
+  android:layout_marginTop="20dp"
+  android:layout_marginLeft="20dp"
+  android:layout_height="wrap_content">
   <LinearLayout
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
-      android:textColor="#000"
-      android:textSize="16dp"
-      android:layout_marginTop="20dp"
+      android:id="@+id/tvCustomerName"
+      android:text="KH: Nguyễn Thị A"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Gạo tẻ"
-      android:textStyle="bold"
-      />
+      android:layout_height="wrap_content"/>
     <TextView
-      android:textSize="13dp"
-      android:textColor="#636e72"
-      android:layout_marginTop="5dp"
+      android:id="@+id/tvOrderStatus"
+      android:layout_marginLeft="50dp"
+      android:text="Trạng thái: ĐANG GIAO"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Địa điểm: 123 Cộng Hòa, Tân bình"/>
-    <LinearLayout
-      android:layout_marginTop="5dp"
-      android:orientation="horizontal"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content">
-      <TextView
-        android:textColor="#2d3436"
-        android:text="Min 20k"
-        android:textSize="13dp"
-        android:drawableLeft="@drawable/ic_discount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-      <TextView
-        android:layout_marginLeft="20dp"
-        android:textColor="#2d3436"
-        android:text="Price 30k"
-        android:textSize="13dp"
-        android:drawableLeft="@drawable/ic_coin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    </LinearLayout>
+      android:layout_height="wrap_content"/>
   </LinearLayout>
+  <TextView
+    android:id="@+id/tvCustomerAddress"
+    android:layout_margin="5dp"
+    android:text="Địa chỉ: số 1 Võ Văn Ngân, Thủ Đức"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+  <LinearLayout
+    android:layout_margin="5dp"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+      android:id="@+id/tvCustomerPhone"
+      android:text="SĐT: 0123456789"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+    <TextView
+      android:id="@+id/btnOrderDetail"
+      android:layout_marginLeft="50dp"
+      android:text="@string/btnDetail"
+
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+  </LinearLayout>
+  <View
+    android:layout_marginTop="5dp"
+    android:background="#C6C6C6"
+    android:layout_width="match_parent"
+    android:layout_height="2dp"/>
 
 
 </LinearLayout>

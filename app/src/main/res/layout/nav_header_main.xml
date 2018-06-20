@@ -15,21 +15,23 @@
   <ImageView
     android:id="@+id/avatar"
     android:layout_gravity="center"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/ic_manager"/>
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:src="@drawable/gao"/>
   <TextView
+    android:id="@+id/tvShipperName"
     android:textSize="16dp"
     android:layout_gravity="center"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Nguyễn Văn A"/>
+    android:text="Shipper: "/>
   <TextView
+    android:id="@+id/tvShipperPhone"
     android:textSize="16dp"
     android:layout_gravity="center"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="N5xs-Ax-Dzz"/>
+    android:text="SĐT: "/>
 
 
 

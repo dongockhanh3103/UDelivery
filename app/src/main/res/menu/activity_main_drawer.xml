@@ -5,7 +5,7 @@
         <item
             android:id="@+id/contract"
             android:icon="@drawable/ic_contract"
-            android:title="Đơn hàng" />
+            android:title="Danh sách đơn hàng" />
         <item
             android:id="@+id/notif"
             android:icon="@drawable/ic_notificationbell"

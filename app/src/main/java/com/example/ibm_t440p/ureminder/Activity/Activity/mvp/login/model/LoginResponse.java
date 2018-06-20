@@ -1,21 +1,23 @@
-package com.example.ibm_t440p.ureminder.Activity.Activity.base;
+package com.example.ibm_t440p.ureminder.Activity.Activity.mvp.login.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Ngoc Khanh on 3/24/2018.
+ * Created by Ngoc Khanh on 6/18/2018.
  */
 
-public class BaseResponse<T> {
+public class LoginResponse {
+
   @SerializedName("status")
   @Expose
   private Integer status;
   @SerializedName("msg")
   @Expose
   private String msg;
-
-
+  @SerializedName("token")
+  @Expose
+  private Token token;
 
   public Integer getStatus() {
     return status;
@@ -33,5 +35,12 @@ public class BaseResponse<T> {
     this.msg = msg;
   }
 
+  public Token getToken() {
+    return token;
+  }
+
+  public void setToken(Token token) {
+    this.token = token;
+  }
 
 }

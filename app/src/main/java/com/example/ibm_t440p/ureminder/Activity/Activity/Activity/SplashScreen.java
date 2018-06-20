@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.login.LoginActivity;
 import com.example.ibm_t440p.ureminder.R;
 
 import java.util.Timer;

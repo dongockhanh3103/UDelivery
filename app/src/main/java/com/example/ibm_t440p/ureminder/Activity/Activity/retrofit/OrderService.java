@@ -1,6 +1,6 @@
 package com.example.ibm_t440p.ureminder.Activity.Activity.retrofit;
 
-import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.order.model.CustomerOrder;
+import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.order.model.CustomerOrdersResponse;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -10,6 +10,7 @@ import retrofit2.http.GET;
 
 public interface OrderService {
   @GET("/api/orders")
-  Call<CustomerOrder>  getAllCustomersOrder();
+  Call<CustomerOrdersResponse> getAllOrderForShipper();
+
 
 }

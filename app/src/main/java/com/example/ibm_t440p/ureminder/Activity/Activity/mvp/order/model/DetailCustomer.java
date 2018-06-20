@@ -7,24 +7,21 @@ import com.google.gson.annotations.SerializedName;
  * Created by Ngoc Khanh on 6/19/2018.
  */
 
-public class OrderDetail {
-  @SerializedName("ProdName")
+public class DetailCustomer {
+  @SerializedName("UsernameCustomer")
   @Expose
-  public String prodName;
-  @SerializedName("Quantiny")
+  public String usernameCustomer;
+  @SerializedName("FullnameCustomer")
   @Expose
-  public Integer quantiny;
-  @SerializedName("Price")
+  public String fullnameCustomer;
+  @SerializedName("AddressCustomer")
   @Expose
-  public Integer price;
-  @SerializedName("Cost")
+  public String addressCustomer;
+  @SerializedName("PhoneCustomer")
   @Expose
-  public Integer cost;
+  public String phoneCustomer;
   @SerializedName("_id")
   @Expose
   public String id;
-  @SerializedName("IDProd")
-  @Expose
-  public String iDProd;
 
 }

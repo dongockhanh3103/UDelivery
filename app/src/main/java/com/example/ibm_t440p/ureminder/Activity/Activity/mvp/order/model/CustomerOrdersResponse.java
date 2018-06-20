@@ -5,10 +5,11 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
- * Created by Ngoc Khanh on 6/4/2018.
+ * Created by Ngoc Khanh on 6/19/2018.
  */
 
-public class CustomerOrder {
+public class CustomerOrdersResponse {
+
   @SerializedName("status")
   @Expose
   public Integer status;
