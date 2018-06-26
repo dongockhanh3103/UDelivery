@@ -1,14 +1,17 @@
 package com.example.ibm_t440p.ureminder.Activity.Activity.mvp.order.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Ngoc Khanh on 6/19/2018.
  */
 
-public class OrdersList {
+public class OrdersList implements Serializable {
   @SerializedName("SumCost")
   @Expose
   public Integer sumCost;
@@ -55,4 +58,125 @@ public class OrdersList {
   @Expose
   public Integer v;
 
+ /* protected OrdersList(Parcel in) {
+    if (in.readByte() == 0) {
+      sumCost = null;
+    } else {
+      sumCost = in.readInt();
+    }
+    if (in.readByte() == 0) {
+      discount = null;
+    } else {
+      discount = in.readInt();
+    }
+    if (in.readByte() == 0) {
+      totalCost = null;
+    } else {
+      totalCost = in.readInt();
+    }
+    if (in.readByte() == 0) {
+      currentOrderStatus = null;
+    } else {
+      currentOrderStatus = in.readInt();
+    }
+    id = in.readString();
+    iDCustomer = in.readString();
+    iDStore = in.readString();
+    iDShipper = in.readString();
+    if (in.readByte() == 0) {
+      purchaseDate = null;
+    } else {
+      purchaseDate = in.readLong();
+    }
+    if (in.readByte() == 0) {
+      v = null;
+    } else {
+      v = in.readInt();
+    }
+
+  }
+
+  public static final Creator<OrdersList> CREATOR = new Creator<OrdersList>() {
+    @Override
+    public OrdersList createFromParcel(Parcel in) {
+      return new OrdersList(in);
+    }
+
+    @Override
+    public OrdersList[] newArray(int size) {
+      return new OrdersList[size];
+    }
+  };
+
+  @Override
+  public int describeContents() {
+    return 0;
+  }
+
+  @Override
+  public void writeToParcel(Parcel dest, int flags) {
+    if (sumCost == null) {
+      dest.writeByte((byte) 0);
+    } else {
+      dest.writeByte((byte) 1);
+      dest.writeInt(sumCost);
+    }
+    if (discount == null) {
+      dest.writeByte((byte) 0);
+    } else {
+      dest.writeByte((byte) 1);
+      dest.writeInt(discount);
+    }
+    if (totalCost == null) {
+      dest.writeByte((byte) 0);
+    } else {
+      dest.writeByte((byte) 1);
+      dest.writeInt(totalCost);
+    }
+    if (currentOrderStatus == null) {
+      dest.writeByte((byte) 0);
+    } else {
+      dest.writeByte((byte) 1);
+      dest.writeInt(currentOrderStatus);
+    }
+    dest.writeString(id);
+    dest.writeString(iDCustomer);
+    dest.writeString(iDStore);
+    dest.writeString(iDShipper);
+    if (purchaseDate == null) {
+      dest.writeByte((byte) 0);
+    } else {
+      dest.writeByte((byte) 1);
+      dest.writeLong(purchaseDate);
+    }
+    if (v == null) {
+      dest.writeByte((byte) 0);
+    } else {
+      dest.writeByte((byte) 1);
+      dest.writeInt(v);
+    }
+  }*/
+
+ /* @Override
+  public int describeContents() {
+    return 0;
+  }
+
+  @Override
+  public void writeToParcel(Parcel dest, int flags) {
+    dest.writeInt(sumCost);
+    dest.writeInt(discount);
+    dest.writeInt(totalCost);
+    dest.writeInt(currentOrderStatus);
+    dest.writeList(detailCustomer);
+    dest.writeList(detailStore);
+    dest.writeList(detailShipper);
+    dest.writeList(orderDetail);
+    dest.writeList(orderStatus);
+    dest.writeString(id);
+    dest.writeString(iDCustomer);
+    dest.writeString(iDShipper);
+    dest.writeString(iDStore);
+    dest.writeLong(purchaseDate);
+  }*/
 }

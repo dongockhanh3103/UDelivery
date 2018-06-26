@@ -6,7 +6,7 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:orientation="vertical"
-  tools:context="com.example.ibm_t440p.ureminder.Activity.Activity.Activity.DetailOrderActivity">
+  tools:context="com.example.ibm_t440p.ureminder.Activity.Activity.mvp.detail_order.DetailOrderActivity">
   <ImageView
     android:layout_width="match_parent"
     android:layout_height="200dp"

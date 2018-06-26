@@ -5,8 +5,10 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.detail_order.DetailOrderActivity;
 import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.order.model.OrdersList;
 import com.example.ibm_t440p.ureminder.R;
 import java.util.ArrayList;
@@ -37,11 +39,18 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.DataViewHold
   }
 
   @Override
-  public void onBindViewHolder(@NonNull DataViewHolder holder, int position) {
+  public void onBindViewHolder(@NonNull DataViewHolder holder, final int position) {
     holder.tvCustomerName.setText("KH: "+this.orderItems.get(position).detailCustomer.get(0).fullnameCustomer);
     holder.tvOrderStatus.setText("Trạng thái: "+getOrderStatus(this.orderItems.get(position).currentOrderStatus));
     holder.tvCustomerAddress.setText("Địa chỉ: "+ this.orderItems.get(position).detailCustomer.get(0).addressCustomer);
     holder.tvCustomerPhone.setText("SĐT: "+ this.orderItems.get(position).detailCustomer.get(0).phoneCustomer);
+
+    holder.btnOrderDetail.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        DetailOrderActivity.open(context,orderItems.get(position));
+      }
+    });
   }
 
   @Override
@@ -70,9 +79,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.DataViewHold
   }
   public static String getOrderStatus(Integer currentStatus){
     Map<Integer,String> status = new HashMap<>();
-    status.put(0,"ĐANG GIAO");
-    status.put(1,"DELAY");
-    status.put(2,"ĐÃ GIAO");
+    status.put(-2,"CANCELLED");
+    status.put(-1,"CANCEL REQUESTED");
+    status.put(0,"CREATED");
+    status.put(1,"SHIPPING");
+    status.put(2,"DELIVERED");
     return status.get(currentStatus);
   }
 

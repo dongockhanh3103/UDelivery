@@ -39,7 +39,7 @@
     </activity>
     <activity android:name=".Activity.Activity.Activity.SplashScreen">
     </activity>
-    <activity android:name=".Activity.Activity.Activity.DetailOrderActivity">
+    <activity android:name=".Activity.Activity.mvp.detail_order.DetailOrderActivity">
     </activity>
   </application>
 
