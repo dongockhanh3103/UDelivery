@@ -1,5 +1,7 @@
 package com.example.ibm_t440p.ureminder.Activity.Activity.mvp.home;
 
+import android.Manifest;
+import android.Manifest.permission;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,12 +17,23 @@ import android.view.MenuItem;
 
 import android.widget.TextView;
 import com.example.ibm_t440p.ureminder.Activity.Activity.base.BaseActivity;
+import com.example.ibm_t440p.ureminder.Activity.Activity.constant.SavedCache;
 import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.home.IHome.Presenter;
 import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.home.model.ShipperInfo;
+import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.login.LoginActivity;
 import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.order.OrderListActivity;
 import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.ui.MapFragment;
 import com.example.ibm_t440p.ureminder.Activity.Activity.utils.DialogNotif;
+import com.example.ibm_t440p.ureminder.Activity.Activity.utils.SampleErrorListener;
 import com.example.ibm_t440p.ureminder.R;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.PermissionRequestErrorListener;
+import com.karumi.dexter.listener.multi.CompositeMultiplePermissionsListener;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+import java.util.List;
 
 public class MainActivity extends BaseActivity
     implements NavigationView.OnNavigationItemSelectedListener,IHome.View {
@@ -30,7 +43,10 @@ public class MainActivity extends BaseActivity
   TextView tvShipperName;
   TextView tvShipperPhone;
   NavigationView navigationView;
-
+  private MultiplePermissionsListener allPermissionsListener;
+  private MultiplePermissionsListener all1PermissionsListener;
+  private PermissionRequestErrorListener errorListener;
+  private boolean isAllGrantedPermission = false;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -46,12 +62,51 @@ public class MainActivity extends BaseActivity
     toggle.syncState();
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
-    replaceFragment(MapFragment.newInstance());
+
+
 
     navigationView=findViewById(R.id.nav_view);
+
+
+    all1PermissionsListener = new MultiplePermissionsListener() {
+
+      @Override
+      public void onPermissionsChecked(MultiplePermissionsReport report) {
+        if (report.getDeniedPermissionResponses() != null) {
+          if (report.getDeniedPermissionResponses().size() > 0) {
+            isAllGrantedPermission = false;
+          }
+        }
+        if (report.getGrantedPermissionResponses() != null) {
+          if (report.getGrantedPermissionResponses().size() == 3) {
+            isAllGrantedPermission = true;
+          }
+        }
+      }
+
+      @Override
+      public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions,
+          PermissionToken token) {
+        permissions.size();
+      }
+    };
+    errorListener =     new SampleErrorListener();
+
+    allPermissionsListener = new CompositeMultiplePermissionsListener(
+        all1PermissionsListener);
+
+    Dexter.withActivity(this)
+        .withPermissions(permission.ACCESS_FINE_LOCATION)
+        .withListener(allPermissionsListener)
+        .withErrorListener(errorListener)
+        .check();
+
+    replaceFragment(MapFragment.newInstance());
     tvShipperName=navigationView.getHeaderView(0).findViewById(R.id.tvShipperName);
     tvShipperPhone=navigationView.getHeaderView(0).findViewById(R.id.tvShipperPhone);
     getPresenter().getShipperInfo();
+
+
 
   }
 
@@ -85,9 +140,6 @@ public class MainActivity extends BaseActivity
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
     int id = item.getItemId();
 
     //noinspection SimplifiableIfStatement
@@ -119,7 +171,9 @@ public class MainActivity extends BaseActivity
     } else if (id == R.id.history) {
 
     } else if (id == R.id.logout) {
-
+      SavedCache.getInstance().setIsLogin(false);
+      SavedCache.getInstance().setShipperToken("");
+      startActivity(new Intent(this, LoginActivity.class));
     }
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

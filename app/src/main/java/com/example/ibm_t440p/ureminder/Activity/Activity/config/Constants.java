@@ -1,5 +1,8 @@
 package com.example.ibm_t440p.ureminder.Activity.Activity.config;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Ngoc Khanh on 6/3/2018.
  */
@@ -14,6 +17,18 @@ public class Constants {
   public final static String SHIPPER_DETAIL_KEY="shipper_detail_key";
   public final static String ORDER_DETAIL_KEY="order_detail_key";
   public final static String ORDER_STATUS_KEY="order_status_key";
+  public final static String DATETIME_PATTERN="dd/MM/yyyy";
+
+  public static String getOrderStatus(Integer currentStatus){
+    Map<Integer,String> status = new HashMap<>();
+    status.put(-2,"ĐÃ HỦY");
+    status.put(-1,"ĐANG CHỜ HỦY");
+    status.put(0,"MỚI");
+    status.put(1,"ĐANG GIAO");
+    status.put(2,"ĐÃ GIAO");
+    status.put(3,"TẠM HOÃN");
+    return status.get(currentStatus);
+  }
 
 
 

@@ -78,9 +78,9 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.DataView
             this.ctv = context;
             this.models = arraysanpham;
             itemView.setOnClickListener(this);
-            imgHinhAnh = (ImageView) itemView.findViewById(R.id.imgSanPham);
-            txtGiaSanPham = (TextView) itemView.findViewById(R.id.txtGia);
-            txtTenSanPham = (TextView) itemView.findViewById(R.id.txtTenSanPham);
+            imgHinhAnh =  itemView.findViewById(R.id.imgSanPham);
+            txtGiaSanPham = itemView.findViewById(R.id.txtGia);
+            txtTenSanPham =  itemView.findViewById(R.id.txtTenSanPham);
 
         }
 

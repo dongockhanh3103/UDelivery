@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -16,6 +18,7 @@ import android.view.ViewGroup;
 
 import android.widget.EditText;
 import android.widget.Toast;
+import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.module.GPSTracker;
 import com.example.ibm_t440p.ureminder.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -26,7 +29,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class MapFragment extends Fragment implements OnMapReadyCallback {
+public class MapFragment extends Fragment implements OnMapReadyCallback, LocationListener {
 
 
   public MapFragment() {
@@ -58,33 +61,33 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     // Inflate the layout for this fragment
     mView = inflater.inflate(R.layout.fragment_map, container, false);
     mapView = (MapView) mView.findViewById(R.id.map);
-    edtDestination=mapView.findViewById(R.id.edt_destination);
+    edtDestination = mapView.findViewById(R.id.edt_destination);
     if (mapView != null) {
       mapView.onCreate(null);
       mapView.onResume();
       mapView.getMapAsync(this);
     }
-    Toast.makeText(getActivity().getApplication(),("address" +getAddress(10.851067,106.772356)),Toast.LENGTH_SHORT).show();
-    Log.d("address", "onMapReady: "+getAddress(10.851067,106.772356));
+
+    Log.d("address", "onMapReady: " + getAddress(10.851067, 106.772356));
     return mView;
   }
 
   @Override
   public void onMapReady(GoogleMap googleMap) {
     mGoogleMap = googleMap;
-    LatLng ute = new LatLng(10.851067, 106.772356);
-    mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ute, 18));
-    if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), permission.ACCESS_FINE_LOCATION)
+
+    if (ActivityCompat
+        .checkSelfPermission(getActivity().getApplicationContext(), permission.ACCESS_FINE_LOCATION)
         != PackageManager.PERMISSION_GRANTED
-        && ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), permission.ACCESS_COARSE_LOCATION)
+        && ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(),
+        permission.ACCESS_COARSE_LOCATION)
         != PackageManager.PERMISSION_GRANTED) {
       // TODO: Consider calling
       return;
     }
-    mGoogleMap.setMyLocationEnabled(true);
+
 
   }
-
 
 
   private String getAddress(double latitude, double longitude) {
@@ -102,5 +105,36 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     }
 
     return result.toString();
+  }
+
+  @Override
+  public void onLocationChanged(Location location) {
+
+    if (ActivityCompat.checkSelfPermission(getContext().getApplicationContext(), permission.ACCESS_FINE_LOCATION)
+        != PackageManager.PERMISSION_GRANTED
+        && ActivityCompat.checkSelfPermission(getContext().getApplicationContext(), permission.ACCESS_COARSE_LOCATION)
+        != PackageManager.PERMISSION_GRANTED) {
+      return;
+    }
+    //LatLng ute = new LatLng(location.getLatitude(), location.getLongitude());
+    Toast.makeText(getActivity().getApplication(), ("address" + getAddress(location.getLatitude(), location.getLongitude())),
+        Toast.LENGTH_SHORT).show();
+   // mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ute, 18));
+    mGoogleMap.setMyLocationEnabled(true);
+  }
+
+  @Override
+  public void onStatusChanged(String provider, int status, Bundle extras) {
+
+  }
+
+  @Override
+  public void onProviderEnabled(String provider) {
+
+  }
+
+  @Override
+  public void onProviderDisabled(String provider) {
+
   }
 }

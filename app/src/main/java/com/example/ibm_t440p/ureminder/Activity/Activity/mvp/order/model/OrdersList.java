@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Ngoc Khanh on 6/19/2018.
  */
 
-public class OrdersList implements Serializable {
+public class OrdersList  implements Serializable,Parcelable{
   @SerializedName("SumCost")
   @Expose
   public Integer sumCost;
@@ -58,7 +58,7 @@ public class OrdersList implements Serializable {
   @Expose
   public Integer v;
 
- /* protected OrdersList(Parcel in) {
+  protected OrdersList(Parcel in) {
     if (in.readByte() == 0) {
       sumCost = null;
     } else {
@@ -93,7 +93,6 @@ public class OrdersList implements Serializable {
     } else {
       v = in.readInt();
     }
-
   }
 
   public static final Creator<OrdersList> CREATOR = new Creator<OrdersList>() {
@@ -155,28 +154,5 @@ public class OrdersList implements Serializable {
       dest.writeByte((byte) 1);
       dest.writeInt(v);
     }
-  }*/
-
- /* @Override
-  public int describeContents() {
-    return 0;
   }
-
-  @Override
-  public void writeToParcel(Parcel dest, int flags) {
-    dest.writeInt(sumCost);
-    dest.writeInt(discount);
-    dest.writeInt(totalCost);
-    dest.writeInt(currentOrderStatus);
-    dest.writeList(detailCustomer);
-    dest.writeList(detailStore);
-    dest.writeList(detailShipper);
-    dest.writeList(orderDetail);
-    dest.writeList(orderStatus);
-    dest.writeString(id);
-    dest.writeString(iDCustomer);
-    dest.writeString(iDShipper);
-    dest.writeString(iDStore);
-    dest.writeLong(purchaseDate);
-  }*/
 }

@@ -25,7 +25,9 @@ public class LoginActivity extends BaseActivity implements  ILogin.View{
     btnEmail= findViewById(R.id.email_sign_in_button);
     edtUsername = findViewById(R.id.email);
     edtPassword = findViewById(R.id.password);
-
+    if(SavedCache.getInstance().isLogin()){
+      startActivity(new Intent(LoginActivity.this,MainActivity.class));
+    }
     dialogNotif=new DialogNotif(LoginActivity.this);
     btnEmail.setOnClickListener(new OnClickListener() {
       @Override
@@ -43,8 +45,6 @@ public class LoginActivity extends BaseActivity implements  ILogin.View{
 
   @Override
   public void onLoginFail(String msg) {
-
-
     dialogNotif.showBasicDismissDialog("Login failure",msg);
 
   }
@@ -52,6 +52,7 @@ public class LoginActivity extends BaseActivity implements  ILogin.View{
   @Override
   public void onLoginSuccess(String token) {
     SavedCache.getInstance().setShipperToken(token);
+    SavedCache.getInstance().setIsLogin(true);
     startActivity(new Intent(LoginActivity.this,MainActivity.class));
   }
 

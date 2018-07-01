@@ -12,12 +12,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
+      android:textColor="#000"
       android:id="@+id/tvCustomerName"
       android:text="KH: Nguyễn Thị A"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"/>
     <TextView
       android:id="@+id/tvOrderStatus"
+      android:textColor="#000"
       android:layout_marginLeft="50dp"
       android:text="Trạng thái: ĐANG GIAO"
       android:layout_width="wrap_content"
@@ -26,6 +28,7 @@
   <TextView
     android:id="@+id/tvCustomerAddress"
     android:layout_margin="5dp"
+    android:textColor="#000"
     android:text="Địa chỉ: số 1 Võ Văn Ngân, Thủ Đức"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"/>
@@ -37,13 +40,14 @@
     <TextView
       android:id="@+id/tvCustomerPhone"
       android:text="SĐT: 0123456789"
+      android:textColor="#000"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"/>
     <TextView
+      android:textColor="#1e6ca7"
       android:id="@+id/btnOrderDetail"
       android:layout_marginLeft="50dp"
       android:text="@string/btnDetail"
-
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"/>
   </LinearLayout>
@@ -51,7 +55,7 @@
     android:layout_marginTop="5dp"
     android:background="#C6C6C6"
     android:layout_width="match_parent"
-    android:layout_height="2dp"/>
+    android:layout_height="1dp"/>
 
 
 </LinearLayout>

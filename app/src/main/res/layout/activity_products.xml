@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:orientation="vertical"
-  tools:context="com.example.ibm_t440p.ureminder.Activity.Activity.mvp.order.OrderListActivity">
+  android:layout_height="match_parent">
 
   <android.support.design.widget.AppBarLayout
     android:layout_width="match_parent"
@@ -16,7 +14,7 @@
 
     <android.support.v7.widget.Toolbar
       android:id="@+id/toolbar"
-      app:title="ĐƠN HÀNG"
+      app:title="DANH SÁCH SẢN PHẨM"
       android:layout_gravity="center_horizontal"
       android:layout_width="wrap_content"
       android:layout_height="?attr/actionBarSize"
@@ -25,8 +23,7 @@
   </android.support.design.widget.AppBarLayout>
 
   <android.support.v7.widget.RecyclerView
-    android:id="@+id/rcvOrderList"
+    android:id="@+id/rcDetailOrderList"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
-
 </LinearLayout>

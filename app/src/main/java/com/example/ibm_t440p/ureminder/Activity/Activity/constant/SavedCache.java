@@ -15,6 +15,10 @@ public class SavedCache {
   private static final String SHIPPER_TOKEN = "SHIPPER_TOKEN";
 
 
+
+  private static final String IS_LOGIN = "isLogin";
+
+
   private SavedCache() {
     preferences = App.self().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
   }
@@ -32,5 +36,15 @@ public class SavedCache {
   public void setShipperToken(String token) {
     preferences.edit().putString(SHIPPER_TOKEN, token).apply();
   }
+
+  public  boolean isLogin() {
+    return preferences.getBoolean(IS_LOGIN,false);
+  }
+
+  public void setIsLogin(boolean isLogin){
+    preferences.edit().putBoolean(IS_LOGIN,isLogin).apply();
+  }
+
+
 
 }

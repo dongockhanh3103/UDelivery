@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by Ngoc Khanh on 3/24/2018.
  */
 
-public class BaseResponse<T> {
+public class BaseResponse{
   @SerializedName("status")
   @Expose
   private Integer status;

@@ -43,5 +43,9 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:${retrofit}"
     implementation "com.squareup.okhttp3:logging-interceptor:${okhttp}"
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+    //===Ripple Effect ===/
+    implementation 'com.balysv:material-ripple:1.0.2'
+    //===DEXTER===/
+    implementation 'com.karumi:dexter:5.0.0'
 
 }
