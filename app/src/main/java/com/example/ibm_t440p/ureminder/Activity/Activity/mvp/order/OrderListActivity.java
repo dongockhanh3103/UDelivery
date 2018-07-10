@@ -1,6 +1,8 @@
 package com.example.ibm_t440p.ureminder.Activity.Activity.mvp.order;
 
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -16,10 +18,12 @@ import java.util.List;
 public class OrderListActivity extends BaseActivity implements IOrderList.View{
   OrderListPresenter mPresenter;
   RecyclerView rcvOrderList;
+  SwipeRefreshLayout swpRefresh;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_order_list);
+    swpRefresh = findViewById(R.id.swp_refresh);
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
     rcvOrderList = findViewById(R.id.rcvOrderList);
@@ -27,6 +31,14 @@ public class OrderListActivity extends BaseActivity implements IOrderList.View{
     orderListLayout.setOrientation(LinearLayoutManager.VERTICAL);
     rcvOrderList.setLayoutManager(orderListLayout);
     getPresenter().getAllOrdersByShipper();
+
+    swpRefresh.setOnRefreshListener(new OnRefreshListener() {
+      @Override
+      public void onRefresh() {
+        swpRefresh.setRefreshing(false);
+        getPresenter().getAllOrdersByShipper();
+      }
+    });
   }
 
   @Override
@@ -42,6 +54,7 @@ public class OrderListActivity extends BaseActivity implements IOrderList.View{
 
   @Override
   public void onGetOrdersSuccess(List<OrdersList> orderItems) {
+    swpRefresh.setRefreshing(false);
     OrderAdapter orderAdapter=new OrderAdapter(getApplicationContext(),orderItems);
     rcvOrderList.setAdapter(orderAdapter);
 
@@ -56,6 +69,7 @@ public class OrderListActivity extends BaseActivity implements IOrderList.View{
 
   @Override
   public void onGetOrderFailure(String msg) {
+    swpRefresh.setRefreshing(false);
     DialogNotif dialogNotif=new DialogNotif(OrderListActivity.this);
     dialogNotif.showBasicDismissDialog("Errors",msg);
 

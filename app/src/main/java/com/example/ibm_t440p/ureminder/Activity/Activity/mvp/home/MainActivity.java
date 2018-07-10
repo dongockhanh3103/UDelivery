@@ -15,12 +15,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.example.ibm_t440p.ureminder.Activity.Activity.base.BaseActivity;
 import com.example.ibm_t440p.ureminder.Activity.Activity.constant.SavedCache;
 import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.home.IHome.Presenter;
 import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.home.model.ShipperInfo;
 import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.login.LoginActivity;
+import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.module.GPSTracker;
 import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.order.OrderListActivity;
 import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.ui.MapFragment;
 import com.example.ibm_t440p.ureminder.Activity.Activity.utils.DialogNotif;
@@ -43,6 +48,7 @@ public class MainActivity extends BaseActivity
   TextView tvShipperName;
   TextView tvShipperPhone;
   NavigationView navigationView;
+  ImageView btnNotification;
   private MultiplePermissionsListener allPermissionsListener;
   private MultiplePermissionsListener all1PermissionsListener;
   private PermissionRequestErrorListener errorListener;
@@ -52,8 +58,10 @@ public class MainActivity extends BaseActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    btnNotification = findViewById(R.id.btn_notification);
     setSupportActionBar(toolbar);
     dialogNotif=new DialogNotif(MainActivity.this);
+
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
         this, drawer, toolbar, R.string.navigation_drawer_open,
@@ -62,8 +70,20 @@ public class MainActivity extends BaseActivity
     toggle.syncState();
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
+    GPSTracker gpsTracker=new GPSTracker(getApplicationContext());
+
+/*    Toast.makeText(getApplicationContext(), ("address" + gpsTracker.getLocation().getLatitude()+ gpsTracker.getLocation().getLongitude()),
+        Toast.LENGTH_SHORT).show();*/
 
 
+    btnNotification.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        startActivity(new Intent(MainActivity.this, OrderListActivity.class));
+        finish();
+
+      }
+    });
 
     navigationView=findViewById(R.id.nav_view);
 
@@ -134,7 +154,7 @@ public class MainActivity extends BaseActivity
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     // Inflate the menu; this adds items to the action bar if it is present.
-    getMenuInflater().inflate(R.menu.main, menu);
+   // getMenuInflater().inflate(R.menu.main, menu);
     return true;
   }
 

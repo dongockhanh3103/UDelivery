@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 
 import android.widget.EditText;
 import android.widget.Toast;
+import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.home.MainActivity;
 import com.example.ibm_t440p.ureminder.Activity.Activity.mvp.module.GPSTracker;
 import com.example.ibm_t440p.ureminder.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -29,7 +30,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class MapFragment extends Fragment implements OnMapReadyCallback, LocationListener {
+public class MapFragment extends Fragment implements OnMapReadyCallback {
 
 
   public MapFragment() {
@@ -86,6 +87,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
       return;
     }
 
+    // mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ute, 18));
+    mGoogleMap.setMyLocationEnabled(true);
+
 
   }
 
@@ -107,34 +111,5 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
     return result.toString();
   }
 
-  @Override
-  public void onLocationChanged(Location location) {
 
-    if (ActivityCompat.checkSelfPermission(getContext().getApplicationContext(), permission.ACCESS_FINE_LOCATION)
-        != PackageManager.PERMISSION_GRANTED
-        && ActivityCompat.checkSelfPermission(getContext().getApplicationContext(), permission.ACCESS_COARSE_LOCATION)
-        != PackageManager.PERMISSION_GRANTED) {
-      return;
-    }
-    //LatLng ute = new LatLng(location.getLatitude(), location.getLongitude());
-    Toast.makeText(getActivity().getApplication(), ("address" + getAddress(location.getLatitude(), location.getLongitude())),
-        Toast.LENGTH_SHORT).show();
-   // mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ute, 18));
-    mGoogleMap.setMyLocationEnabled(true);
-  }
-
-  @Override
-  public void onStatusChanged(String provider, int status, Bundle extras) {
-
-  }
-
-  @Override
-  public void onProviderEnabled(String provider) {
-
-  }
-
-  @Override
-  public void onProviderDisabled(String provider) {
-
-  }
 }
