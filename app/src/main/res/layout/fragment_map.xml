@@ -4,7 +4,7 @@
   android:layout_height="match_parent"
   android:orientation="vertical"
   android:layout_marginTop="60dp"
-  tools:context="com.example.ibm_t440p.ureminder.Activity.Activity.mvp.ui.MapFragment">
+  tools:context="com.udelivery.ibm_t440p.ureminder.Activity.Activity.mvp.ui.MapFragment">
 
   <!-- TODO: Update blank fragment layout -->
   <LinearLayout

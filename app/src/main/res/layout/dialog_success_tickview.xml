@@ -36,7 +36,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/success_circle" />
 
-        <com.example.ibm_t440p.ureminder.Activity.Activity.utils.SuccessTickView
+        <com.udelivery.ibm_t440p.ureminder.Activity.Activity.utils.SuccessTickView
             android:id="@+id/success_tickview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
