@@ -124,14 +124,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,FinderLi
     }
 
     GPSTracker gpsTracker = new GPSTracker(getContext().getApplicationContext());
-    LatLng currentLocation = new LatLng(gpsTracker.getLocation().getLatitude(),
-        gpsTracker.getLocation().getLongitude());
+    LatLng currentLocation = new LatLng(10.851383,106.7698023);
 
     mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 18));
 
     googleMap.addMarker(new MarkerOptions()
         .position(currentLocation)
-        .title(getAddress(currentLocation.latitude, currentLocation.longitude))).showInfoWindow();
+        .title(getAddress(10.851383,106.7698023))).showInfoWindow();
     mGoogleMap.setMyLocationEnabled(true);
     mGoogleMap.animateCamera( CameraUpdateFactory.zoomTo( 17.0f ) );
 
@@ -141,8 +140,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,FinderLi
 
   private void sendRequest() {
     GPSTracker gpsTracker = new GPSTracker(getContext().getApplicationContext());
-    LatLng currentLocation = new LatLng(gpsTracker.getLocation().getLatitude(),
-        gpsTracker.getLocation().getLongitude());
+    LatLng currentLocation = new LatLng(10.851383,106.7698023);
 
 
    String origin = getAddress(currentLocation.latitude,currentLocation.longitude);

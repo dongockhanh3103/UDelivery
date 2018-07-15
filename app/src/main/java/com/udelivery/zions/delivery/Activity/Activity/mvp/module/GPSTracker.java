@@ -32,7 +32,7 @@ public class GPSTracker implements android.location.LocationListener {
     LocationManager lm = (LocationManager) context.getSystemService(context.LOCATION_SERVICE);
     boolean isGPSEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
     if (isGPSEnabled) {
-      lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 0, this);
+      lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0, this);
       Location l = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
       return l;
     } else {
