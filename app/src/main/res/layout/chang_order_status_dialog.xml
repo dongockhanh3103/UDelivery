@@ -46,7 +46,7 @@
       android:gravity="center"
       android:hint="Ghi chú"
       android:inputType="textPersonName"
-      android:maxLength="6"
+      android:maxLength="20"
       android:textColorHint="#D6D6D6"/>
   </RelativeLayout>
 

@@ -81,10 +81,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,FinderLi
     mapFragment.getMapAsync(this);
 
  //   Log.d("address", "onMapReady: " + getAddress(37.4220, -122.0840));
-    if(getArguments().getString("CUSTOMER_ADDRESS")!=null || getArguments().getString("CUSTOMER_ADDRESS")!=""){
-      edtDestination.setText(getArguments().getString("CUSTOMER_ADDRESS"));
-      sendRequest();
-    }
+
     edtDestination.setOnKeyListener(new OnKeyListener() {
       @Override
       public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -97,6 +94,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,FinderLi
       }
     });
     return mView;
+  }
+
+  @Override
+  public void onStart() {
+    super.onStart();
+    if(getArguments().getString("CUSTOMER_ADDRESS")!=null || getArguments().getString("CUSTOMER_ADDRESS")!=""){
+      edtDestination.setText(getArguments().getString("CUSTOMER_ADDRESS"));
+      sendRequest();
+    }
   }
 
   @Override
@@ -139,7 +145,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,FinderLi
         gpsTracker.getLocation().getLongitude());
 
 
-    String origin = getAddress(currentLocation.latitude,currentLocation.longitude);
+   String origin = getAddress(currentLocation.latitude,currentLocation.longitude);
+   // String origin = "Bien Hoa";
     String destination =edtDestination.getText().toString();
     if (origin.isEmpty()) {
       Toast.makeText(getActivity(), "Please enter origin address!", Toast.LENGTH_SHORT).show();
