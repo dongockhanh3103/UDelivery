@@ -4,7 +4,7 @@
   android:layout_height="match_parent"
   android:orientation="vertical"
   android:layout_marginTop="60dp"
-  tools:context="com.udelivery.ibm_t440p.ureminder.Activity.Activity.mvp.ui.MapFragment">
+  tools:context="com.udelivery.zions.delivery.Activity.Activity.mvp.ui.MapFragment">
 
   <!-- TODO: Update blank fragment layout -->
   <LinearLayout
@@ -12,7 +12,7 @@
     android:orientation="vertical"
     android:layout_margin="5dp"
     android:layout_width="match_parent"
-    android:layout_height="85dp">
+    android:layout_height="100dp">
     <TextView
       android:layout_marginLeft="20dp"
       android:layout_width="match_parent"
@@ -34,7 +34,7 @@
         android:layout_marginLeft="20dp"
         android:layout_height="0dp"
         android:layout_marginBottom="5dp"
-        android:layout_weight="0.9"
+        android:layout_weight="1.5"
         android:drawableLeft="@drawable/ic_place"
         android:textSize="16dp"
         android:id="@+id/edt_destination"
@@ -45,9 +45,11 @@
 
 
   </LinearLayout>
-  <com.google.android.gms.maps.MapView
-    android:id="@+id/map"
+
+  <fragment
+    android:id="@+id/google_map_fragment"
+    class="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-  </com.google.android.gms.maps.MapView>
+    android:layout_height="match_parent"/>
+
 </LinearLayout>

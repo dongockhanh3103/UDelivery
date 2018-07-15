@@ -6,11 +6,12 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:orientation="vertical"
-  tools:context="com.udelivery.ibm_t440p.ureminder.Activity.Activity.mvp.home.MainActivity">
+  tools:context="com.udelivery.zions.delivery.Activity.Activity.mvp.home.MainActivity">
 
     <FrameLayout
       android:id="@+id/fragment"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:name="com.google.android.gms.maps.SupportMapFragment"
       />
 </LinearLayout>

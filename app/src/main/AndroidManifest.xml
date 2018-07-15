@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.udelivery.ibm_t440p.ureminder">
+  package="com.udelivery.zions.delivery">
 
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-feature android:name="android.hardware.location.gps" />
+  <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+  <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"/>
 
   <application
     android:allowBackup="true"
-    android:icon="@mipmap/ic_launcher"
+    android:icon="@drawable/icon_delivery"
     android:label="@string/app_name"
-    android:name="com.udelivery.ibm_t440p.ureminder.Activity.Activity.constant.App"
+    android:name="com.udelivery.zions.delivery.Activity.Activity.constant.App"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
     <activity
       android:label="@string/app_name"
-      android:name="com.udelivery.ibm_t440p.ureminder.Activity.Activity.mvp.login.LoginActivity"
+      android:name="com.udelivery.zions.delivery.Activity.Activity.mvp.login.LoginActivity"
       android:theme="@style/AppTheme.NoActionBar">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
@@ -24,26 +27,43 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name="com.udelivery.ibm_t440p.ureminder.Activity.Activity.mvp.home.MainActivity">
+    <activity android:name="com.udelivery.zions.delivery.Activity.Activity.mvp.home.MainActivity">
     </activity>
-    <activity android:name="com.udelivery.ibm_t440p.ureminder.Activity.Activity.Activity.SanPhamActivity">
+    <activity android:name="com.udelivery.zions.delivery.Activity.Activity.Activity.SanPhamActivity">
     </activity>
 
     <meta-data
       android:name="com.google.android.geo.API_KEY"
       android:value="@string/google_map_key"/>
+    <meta-data
+      android:name="com.google.android.gms.version"
+      android:value="@integer/google_play_services_version" />
 
     <activity
       android:label="@string/title_activity_order_list"
-      android:name="com.udelivery.ibm_t440p.ureminder.Activity.Activity.mvp.order.OrderListActivity"
+      android:name="com.udelivery.zions.delivery.Activity.Activity.mvp.order.OrderListActivity"
       android:theme="@style/AppTheme">
     </activity>
-    <activity android:name="com.udelivery.ibm_t440p.ureminder.Activity.Activity.Activity.SplashScreen">
+    <activity android:name="com.udelivery.zions.delivery.Activity.Activity.Activity.SplashScreen">
     </activity>
-    <activity android:name="com.udelivery.ibm_t440p.ureminder.Activity.Activity.mvp.detail_order.DetailOrderActivity">
+    <activity android:name="com.udelivery.zions.delivery.Activity.Activity.mvp.detail_order.DetailOrderActivity">
     </activity>
-    <activity android:name="com.udelivery.ibm_t440p.ureminder.Activity.Activity.mvp.products.ProductsActivity">
+    <activity android:name="com.udelivery.zions.delivery.Activity.Activity.mvp.products.ProductsActivity">
     </activity>
+
+    <service
+      android:name="com.udelivery.zions.delivery.Activity.Activity.application.MyFirebaseMessageService">
+      <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+      </intent-filter>
+    </service>
+
+    <service
+      android:name="com.udelivery.zions.delivery.Activity.Activity.application.model.MyFirebaseInstanceIDService">
+      <intent-filter>
+        <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+      </intent-filter>
+    </service>
   </application>
 
 </manifest>

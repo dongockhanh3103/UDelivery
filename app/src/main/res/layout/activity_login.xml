@@ -53,7 +53,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:drawableLeft="@drawable/usericon"
-          android:hint="Email"
+          android:hint="Username"
           android:inputType="textEmailAddress"
           android:maxLines="1"
           android:paddingLeft="10dp"
@@ -123,37 +123,6 @@
         android:textAllCaps="false"
         android:textColor="@color/textColorButton"
         android:textSize="20dp" />
-
-      <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
-
-        <TextView
-
-          android:id="@+id/notAcc"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:layout_marginTop="20dp"
-          android:text="@string/not_account"
-          android:textColor="#000"
-          android:textSize="17dp" />
-
-        <TextView
-
-          android:id="@+id/txtSignUp"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:layout_marginLeft="5dp"
-          android:layout_marginTop="20dp"
-          android:layout_toRightOf="@id/notAcc"
-          android:text="@string/sing_up"
-          android:textStyle="bold"
-          android:textColor="#c0392b"
-          android:textSize="17dp" />
-      </RelativeLayout>
 
 
     </LinearLayout>

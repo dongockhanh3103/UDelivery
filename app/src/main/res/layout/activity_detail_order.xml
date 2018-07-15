@@ -1,181 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:orientation="vertical"
-  tools:context="com.udelivery.ibm_t440p.ureminder.Activity.Activity.mvp.detail_order.DetailOrderActivity">
-  <android.support.design.widget.AppBarLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:theme="@style/AppTheme.AppBarOverlay">
 
-    <android.support.v7.widget.Toolbar
-      android:id="@+id/toolbar"
-      android:layout_width="wrap_content"
-      android:layout_height="?attr/actionBarSize"
-      android:layout_gravity="center_horizontal"
-      android:background="?attr/colorPrimary"
-      app:popupTheme="@style/AppTheme.PopupOverlay"
-      app:title="CHI TIẾT ĐƠN HÀNG"/>
-  </android.support.design.widget.AppBarLayout>
-  <ImageView
-    android:layout_width="match_parent"
-    android:layout_height="175dp"
-    android:scaleType="fitXY"
-    android:src="@drawable/gaongon"/>
-  <TextView
-    android:id="@+id/tvOrderName"
-    android:textStyle="bold"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:text="Gạo nếp - Thơm miền tây"
-    android:textColor="#2d3436"
-    android:textSize="21dp"/>
+  xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <TextView
-    android:id="@+id/tvOrderStatus"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:text="Status : ĐANG GIAO"
-    android:textColor="#2d3436"
-    android:textSize="16dp"/>
 
-  <TextView
-    android:id="@+id/tvCustomerName"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:text="KH: Kang"
-    android:textColor="#2d3436"
-    android:textSize="16dp"/>
+
   <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.udelivery.zions.delivery.Activity.Activity.mvp.detail_order.DetailOrderActivity">
+    <android.support.design.widget.AppBarLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_horizontal"
+      android:theme="@style/AppTheme.AppBarOverlay">
+
+      <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center_horizontal"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:title="CHI TIẾT ĐƠN HÀNG"/>
+    </android.support.design.widget.AppBarLayout>
+    <ImageView
+      android:layout_width="match_parent"
+      android:layout_height="175dp"
+      android:scaleType="fitXY"
+      android:src="@drawable/gaongon"/>
     <TextView
-      android:id="@+id/tvAddress"
+      android:id="@+id/tvOrderName"
+      android:textStyle="bold"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="10dp"
+      android:text="Gạo nếp - Thơm miền tây"
+      android:textColor="#2d3436"
+      android:textSize="21dp"/>
+
+    <TextView
+      android:id="@+id/tvOrderStatus"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginLeft="10dp"
-      android:text="Địa chỉ: 01 Võ Văn Ngân, Thủ Đức"
+      android:text="Status : ĐANG GIAO"
       android:textColor="#2d3436"
       android:textSize="16dp"/>
 
     <TextView
-      android:id="@+id/btn_direct_map"
+      android:id="@+id/tvCustomerName"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginLeft="20dp"
-      android:drawableRight="@drawable/ic_man_walking_directions_button"
-      android:text="Chỉ đường"
+      android:layout_marginLeft="10dp"
+      android:text="KH: Kang"
+      android:textColor="#2d3436"
+      android:textSize="16dp"/>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+      <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Địa chỉ: 01 Võ Văn Ngân, Thủ Đức"
+        android:textColor="#1e6ca7"
+        android:textSize="16dp"/>
+
+      <!--<TextView-->
+        <!--android:id="@+id/btn_direct_map"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:drawableRight="@drawable/ic_man_walking_directions_button"-->
+        <!--android:text="Chỉ đường"-->
+        <!--android:textColor="#2d3436"-->
+        <!--android:textSize="16dp"/>-->
+
+    </LinearLayout>
+    <TextView
+      android:id="@+id/tvCustomerPhone"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:text="SĐT: 0123456793"
+      android:textColor="#2d3436"
+      android:textSize="16dp"/>
+    <TextView
+      android:id="@+id/tvOrderId"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:text="Mã đơn hàng: 06"
       android:textColor="#2d3436"
       android:textSize="16dp"/>
 
-  </LinearLayout>
-  <TextView
-    android:id="@+id/tvCustomerPhone"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:text="SĐT: 0123456793"
-    android:textColor="#2d3436"
-    android:textSize="16dp"/>
-  <TextView
-    android:id="@+id/tvOrderId"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:text="Mã đơn hàng: 06"
-    android:textColor="#2d3436"
-    android:textSize="16dp"/>
 
-
-  <TextView
-    android:id="@+id/tvPayment"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:text="Số tiền thanh toán: 125.000đ"
-    android:textColor="#2d3436"
-    android:textSize="16dp"/>
-  <TextView
-    android:id="@+id/btnMoreDetail"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:padding="5dp"
-    android:background="@drawable/bg_more_detail"
-    android:text="Xem danh sách sản phẩm"
-    android:textColor="#FFF"
-    android:textSize="16dp"/>
-  <TextView
-    android:id="@+id/tvOrderTime"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:text="Thời gian đặt hàng: 9h23p, 05/6/2018"
-    android:textColor="#2d3436"
-    android:textSize="16dp"/>
-
-
-  <View
-
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:layout_marginTop="10dp"
-    android:background="#b2bec3"
-    />
-  <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="75dp"
-    android:layout_marginTop="10dp"
-    android:orientation="horizontal">
     <TextView
-      android:id="@+id/btnDeliveredStatus"
-      android:layout_width="0dp"
-      android:layout_height="match_parent"
-      android:layout_weight="1"
-      android:drawableTop="@drawable/ic_shipped"
-      android:gravity="center"
-      android:text="ĐÃ GIAO"/>
+      android:id="@+id/tvPayment"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:text="Số tiền thanh toán: 125.000đ"
+      android:textColor="#2d3436"
+      android:textSize="16dp"/>
+    <TextView
+      android:id="@+id/btnMoreDetail"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:padding="5dp"
+      android:background="@drawable/bg_more_detail"
+      android:text="Xem danh sách sản phẩm"
+      android:textColor="#FFF"
+      android:textSize="16dp"/>
+    <TextView
+      android:id="@+id/tvOrderTime"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:text="Thời gian đặt hàng: 9h23p, 05/6/2018"
+      android:textColor="#2d3436"
+      android:textSize="16dp"/>
+
+
     <View
-      android:layout_width="0dp"
-      android:layout_height="45dp"
-      android:layout_weight="0.01"
+
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
       android:layout_marginTop="10dp"
       android:background="#b2bec3"
       />
-    <TextView
-      android:id="@+id/btnDelayedStatus"
-      android:layout_width="0dp"
-      android:layout_height="match_parent"
-      android:layout_weight="1"
-      android:drawableTop="@drawable/ic_delaytruck"
-      android:gravity="center"
-      android:text="KHÁCH HẸN (delay)"/>
-    <View
-      android:layout_width="0dp"
-      android:layout_height="45dp"
-      android:layout_weight="0.01"
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="75dp"
       android:layout_marginTop="10dp"
-      android:background="#b2bec3"
-      />
-    <TextView
-      android:id="@+id/btnCancelStatus"
-      android:layout_width="0dp"
-      android:layout_height="match_parent"
-      android:layout_weight="1"
-      android:drawableTop="@drawable/ic_refund"
-      android:gravity="center"
-      android:text="KHÁCH HỦY"/>
+      android:orientation="horizontal">
+      <TextView
+        android:id="@+id/btnDeliveredStatus"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_shipped"
+        android:gravity="center"
+        android:text="ĐÃ GIAO"/>
+      <View
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_weight="0.01"
+        android:layout_marginTop="10dp"
+        android:background="#b2bec3"
+        />
+      <TextView
+        android:id="@+id/btnDelayedStatus"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_delaytruck"
+        android:gravity="center"
+        android:text="KHÁCH HẸN (delay)"/>
+      <View
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_weight="0.01"
+        android:layout_marginTop="10dp"
+        android:background="#b2bec3"
+        />
+      <TextView
+        android:id="@+id/btnCancelStatus"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_refund"
+        android:gravity="center"
+        android:text="KHÁCH HỦY"/>
+
+    </LinearLayout>
+
 
   </LinearLayout>
+</ScrollView>
 
-
-</LinearLayout>
