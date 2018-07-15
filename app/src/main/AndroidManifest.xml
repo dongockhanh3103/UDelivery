@@ -12,7 +12,7 @@
 
   <application
     android:allowBackup="true"
-    android:icon="@drawable/icon_delivery"
+    android:icon="@mipmap/ic_launcher"
     android:label="@string/app_name"
     android:name="com.udelivery.zions.delivery.Activity.Activity.constant.App"
     android:supportsRtl="true"

@@ -99,7 +99,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,FinderLi
   @Override
   public void onStart() {
     super.onStart();
-    if(getArguments().getString("CUSTOMER_ADDRESS")!=null || getArguments().getString("CUSTOMER_ADDRESS")!=""){
+    if(getArguments().getString("CUSTOMER_ADDRESS")!=null && getArguments().getString("CUSTOMER_ADDRESS")!=""){
       edtDestination.setText(getArguments().getString("CUSTOMER_ADDRESS"));
       sendRequest();
     }

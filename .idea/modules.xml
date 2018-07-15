@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://C:\ANT New Repo\UDelivery\Android.iml" filepath="C:\ANT New Repo\UDelivery\Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/UDelivery.iml" filepath="$PROJECT_DIR$/UDelivery.iml" />
+      <module fileurl="file://C:\ANT test\UDelivery\UDelivery.iml" filepath="C:\ANT test\UDelivery\UDelivery.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\ANT test\UDelivery\app\app.iml" filepath="C:\ANT test\UDelivery\app\app.iml" />
     </modules>
   </component>
 </project>
